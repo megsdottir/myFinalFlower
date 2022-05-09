@@ -13,6 +13,24 @@ In order to recreate that image, we used pastel colors that are also reminiscent
 we utilized the push and pop matrix features.
 The flowers were also drawn in a way that were inspired by children’s books/cartoons, hence the simplistic illustrations.
 
+The code we used to create the spinning effect of the petals is below:
+
+ ofSetColor(251,204,209);
+       ofPushMatrix();
+       ofTranslate(320, 450, -10);
+       float angle = ofGetElapsedTimef()*uiSpeed*15;
+       ofRotate(angle);
+       
+       int petals = 8;
+       for (int i=0; i<petals; i++) {
+           ofRotate(360.0/petals);
+           
+           ofPoint p1 (0,40);
+           ofPoint p2 (60,0);
+           ofTriangle (p1, -p1, -p2);
+       }
+       ofPopMatrix();
+
 
 
 ![280198113_752138889485603_6859145230311288330_n](https://user-images.githubusercontent.com/102966737/167482773-5118aac8-d75d-4ca4-a4bc-408ae42c0958.png)
